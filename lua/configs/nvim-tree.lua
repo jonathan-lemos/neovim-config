@@ -15,7 +15,6 @@ nvim_tree.setup {
         m.map("<2-LeftMouse>", a.node.open.edit, opts)
         m.map("-", a.tree.collapse_all, opts)
         m.map("z", a.tree.change_root_to_node, opts)
-        m.map("<2-MiddleMouse>", a.node.open.edit, opts)
         m.map("h", a.node.open.horizontal, opts)
         m.map("v", a.node.open.vertical, opts)
         m.map("u", a.tree.change_root_to_parent, opts)
