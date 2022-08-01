@@ -12,14 +12,15 @@ This repository is really just meant to hold my NeoVim config. It's not meant to
 ## Hop keybinds
 | Keybind | Description |
 |---------|-------------|
-|`s`|type a character, hop to a selected occurence of it|
-|`S`|type a regex, hit enter, hop to a selected occurence of it|
+|`s`|type a character, hop to a selected occurrence of it|
+|`S`|type a regex, hit enter, hop to a selected occurrence of it|
 
 ## LSP keybinds
 | Keybind | Description |
 |---------|-------------|
 |`gi`|go to implementation|
 |`gd`|go to definition|
+|`<Leader>c`|apply code action (auto-fix)|
 |`<Leader>i`|format current buffer|
 |`<Leader>e`|open diagnostic window below|
 

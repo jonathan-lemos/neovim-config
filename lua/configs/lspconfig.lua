@@ -26,6 +26,8 @@ local lsp_defaults = {
         m.map('gd', vim.lsp.buf.definition)
         -- map <Leader>i to format the current buffer
         m.map('<Leader>i', vim.lsp.buf.formatting)
+        -- map <Leader>c to apply a code action (auto-fix)
+        m.map('<Leader>c', vim.lsp.buf.code_action)
     end
 }
 
@@ -41,6 +43,12 @@ lspconfig.hls.setup {
         formattingProvider = 'fourmolu'
     }
 }
+
+-- set up LTeX grammar checker
+lspconfig.ltex.setup {}
+
+-- set up markdown linter
+lspconfig.marksman.setup {}
 
 -- set up sumneko's lua-language-server
 lspconfig.sumneko_lua.setup {
