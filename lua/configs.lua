@@ -12,4 +12,3 @@ require 'configs/nvim-tree'
 require 'configs/surround'
 require 'configs/telescope'
 require 'configs/trouble'
-

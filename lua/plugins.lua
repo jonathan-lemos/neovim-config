@@ -18,15 +18,15 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim',
-            {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
         }
     }
 
     -- better syntax highlighting
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
     -- status bar at bottom
-    use {'hoob3rt/lualine.nvim', requires = { "kyazdani42/nvim-web-devicons", opt = true }}
+    use { 'hoob3rt/lualine.nvim', requires = { "kyazdani42/nvim-web-devicons", opt = true } }
 
     -- completion engine
     use {
@@ -48,13 +48,13 @@ return require('packer').startup(function(use)
     use 'neovimhaskell/haskell-vim'
 
     -- nerdtree w/ lsp support
-    use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons'}}
+    use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
 
     -- diagnostic window
-    use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
+    use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
 
     -- easymotion but better
-    use {'phaazon/hop.nvim', branch = 'v2'}
+    use { 'phaazon/hop.nvim', branch = 'v2' }
 
     -- highlight the word under the cursor
     use 'itchyny/vim-cursorword'
@@ -75,7 +75,7 @@ return require('packer').startup(function(use)
     use "tomasiser/vim-code-dark"
 
     -- tabline for vim buffers
-    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = "kyazdani42/nvim-web-devicons"}
+    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" }
 
     -- startup screen
     use { 'goolord/alpha-nvim', requires = { 'kyazdani42/nvim-web-devicons' } }

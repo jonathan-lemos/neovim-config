@@ -65,4 +65,3 @@ cmd 'colorscheme codedark'
 
 -- strip trailing whitespace on save
 api.nvim_create_autocmd('BufWritePre', { command = ':%s/\\s\\+$//e' })
-

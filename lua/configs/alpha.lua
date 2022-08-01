@@ -242,4 +242,3 @@ local config = {
 }
 
 alpha.setup(config)
-

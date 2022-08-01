@@ -21,4 +21,3 @@ bufferline.setup {
 m.map("<Leader>bp", "<cmd> BufferLinePick<CR>")
 m.map("<Leader>bq", "<cmd> bd<CR>")
 m.map("<Leader>bi", "<cmd> %bd|e#|bd#<CR>")
-

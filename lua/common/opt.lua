@@ -1,12 +1,12 @@
 -- sets all of the vim pairs in the object
-local setopt = function (o)
+local setopt = function(o)
     for k, v in pairs(o) do
         vim.opt[k] = v
     end
 end
 
 -- sets ignorecase/smartcase to 'b'
-local setsmartcase = function (b)
+local setsmartcase = function(b)
     setopt {
         ignorecase = b,
         smartcase = b
@@ -14,7 +14,7 @@ local setsmartcase = function (b)
 end
 
 -- sets the tab length to 'l' spaces
-local settablength = function (l)
+local settablength = function(l)
     setopt {
         tabstop = l,
         shiftwidth = l,
@@ -28,4 +28,3 @@ return {
     setsmartcase = setsmartcase,
     settablength = settablength
 }
-

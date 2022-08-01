@@ -13,4 +13,3 @@ m.map('$', 'g$', { remap = false })
 m.tmap('<Esc>', '<C-\\><C-n>')
 -- open terminal with \t
 m.map('<Leader>t', '<cmd>split | startinsert | terminal<CR>')
-

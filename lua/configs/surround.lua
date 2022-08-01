@@ -6,4 +6,3 @@ surround.setup {
         visual_line = "<Leader>s"
     }
 }
-

@@ -1,5 +1,5 @@
-local mmf = function (modes)
-    return function (from, to, opts)
+local mmf = function(modes)
+    return function(from, to, opts)
         if opts == nil then
             opts = {}
         end
@@ -19,4 +19,3 @@ return {
     cmap = mmf('c'),
     tmap = mmf('t')
 }
-
