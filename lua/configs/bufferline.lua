@@ -1,8 +1,8 @@
 local bufferline = require 'bufferline'
-local opt = require 'common/opt'
-local m = require 'common/map'
+require 'vider/vim'
+require 'vider/map'
 
-opt.set { termguicolors = true }
+setopt { termguicolors = true }
 
 bufferline.setup {
     options = {
@@ -18,6 +18,6 @@ bufferline.setup {
     }
 }
 
-m.map("<Leader>bp", "<cmd> BufferLinePick<CR>")
-m.map("<Leader>bq", "<cmd> bd<CR>")
-m.map("<Leader>bi", "<cmd> %bd|e#|bd#<CR>")
+noremap { "<Leader>bp", "<cmd> BufferLinePick<CR>" }
+noremap { "<Leader>bq", "<cmd> bd<CR>" }
+noremap { "<Leader>bi", "<cmd> %bd|e#|bd#<CR>" }

@@ -1,31 +1,31 @@
 local nvim_tree = require 'nvim-tree'
-local m = require 'common/map'
+require 'vider/map'
 
 nvim_tree.setup {
-    diagnostics = {
-        enable = true,
-        show_on_dirs = true
-    },
-    -- keep the cursor on the first character of the filename
-    hijack_cursor = true,
-    on_attach = function(bufnr)
-        local a = require 'nvim-tree.api'
-        local opts = { buffer = bufnr, remap = false }
-        m.map("<CR>", a.node.open.edit, opts)
-        m.map("<2-LeftMouse>", a.node.open.edit, opts)
-        m.map("-", a.tree.collapse_all, opts)
-        m.map("z", a.tree.change_root_to_node, opts)
-        m.map("h", a.node.open.horizontal, opts)
-        m.map("v", a.node.open.vertical, opts)
-        m.map("u", a.tree.change_root_to_parent, opts)
-        m.map("c", a.fs.create, opts)
-        m.map("r", a.fs.rename, opts)
-        m.map("x", a.fs.cut, opts)
-        m.map("y", a.fs.copy.node, opts)
-        m.map("p", a.fs.paste, opts)
-        m.map("d", a.fs.remove, opts)
-    end,
-    remove_keymaps = true
+	diagnostics = {
+		enable = true,
+		show_on_dirs = true
+	},
+	-- keep the cursor on the first character of the filename
+	hijack_cursor = true,
+	on_attach = function(bufnr)
+		local a = require 'nvim-tree.api'
+		local opts = { buffer = bufnr, remap = false }
+		noremap { "<CR>", a.node.open.edit, opts }
+		noremap { "<2-LeftMouse>", a.node.open.edit, opts }
+		noremap { "-", a.tree.collapse_all, opts }
+		noremap { "z", a.tree.change_root_to_node, opts }
+		noremap { "h", a.node.open.horizontal, opts }
+		noremap { "v", a.node.open.vertical, opts }
+		noremap { "u", a.tree.change_root_to_parent, opts }
+		noremap { "c", a.fs.create, opts }
+		noremap { "r", a.fs.rename, opts }
+		noremap { "x", a.fs.cut, opts }
+		noremap { "y", a.fs.copy.node, opts }
+		noremap { "p", a.fs.paste, opts }
+		noremap { "d", a.fs.remove, opts }
+	end,
+	remove_keymaps = true
 }
 
-m.map('<Leader>n', '<cmd>NvimTreeToggle .<CR>', { remap = false })
+noremap { '<Leader>n', '<cmd>NvimTreeToggle .<CR>' }

@@ -1,6 +1,6 @@
 local trouble = require 'trouble'
-local m = require 'common/map'
+require 'vider/map'
 
 trouble.setup {}
 
-m.map('<Leader>e', '<cmd>TroubleToggle<CR>')
+noremap { '<Leader>e', '<cmd>TroubleToggle<CR>' }

@@ -1,12 +1,17 @@
--- sets all of the vim pairs in the object
-local setopt = function(o)
+-- sets the color scheme
+colorscheme = function(s)
+    vim.cmd('colorscheme ' .. s)
+end
+
+-- sets each key to its value, e.g. { scrolloff = 999, number = true }
+setopt = function(o)
     for k, v in pairs(o) do
         vim.opt[k] = v
     end
 end
 
 -- sets ignorecase/smartcase to 'b'
-local setsmartcase = function(b)
+setsmartcase = function(b)
     setopt {
         ignorecase = b,
         smartcase = b
@@ -14,7 +19,7 @@ local setsmartcase = function(b)
 end
 
 -- sets the tab length to 'l' spaces
-local settablength = function(l)
+settablength = function(l)
     setopt {
         tabstop = l,
         shiftwidth = l,
@@ -23,8 +28,3 @@ local settablength = function(l)
     }
 end
 
-return {
-    set = setopt,
-    setsmartcase = setsmartcase,
-    settablength = settablength
-}

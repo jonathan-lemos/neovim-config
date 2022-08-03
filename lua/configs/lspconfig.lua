@@ -1,7 +1,7 @@
 local lspconfig = require 'lspconfig'
 local mason = require 'mason'
 local mason_lspconfig = require 'mason-lspconfig'
-local m = require 'common/map'
+require 'vider/map'
 
 -- mason installs LSP's for lspconfig, so i include its setup here
 mason.setup {}
@@ -21,13 +21,13 @@ local lsp_defaults = {
     on_attach = function(client, bufnr)
         vim.api.nvim_exec_autocmds('User', { pattern = 'LspAttached' })
         -- map gi to "go to implementation" when LSP attaches
-        m.map('gi', vim.lsp.buf.implementation)
+        noremap { 'gi', vim.lsp.buf.implementation }
         -- map gd to "go to definition" when LSP attaches
-        m.map('gd', vim.lsp.buf.definition)
+        noremap { 'gd', vim.lsp.buf.definition }
         -- map <Leader>i to format the current buffer
-        m.map('<Leader>i', vim.lsp.buf.formatting)
+        noremap { '<Leader>i', vim.lsp.buf.formatting }
         -- map <Leader>c to apply a code action (auto-fix)
-        m.map('<Leader>c', vim.lsp.buf.code_action)
+        noremap { '<Leader>c', vim.lsp.buf.code_action }
     end
 }
 
@@ -39,8 +39,10 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
 
 -- set up HLS (haskell)
 lspconfig.hls.setup {
-    haskell = {
-        formattingProvider = 'fourmolu'
+    settings = {
+        haskell = {
+            formattingProvider = 'fourmolu'
+        }
     }
 }
 
