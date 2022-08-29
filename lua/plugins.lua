@@ -79,4 +79,7 @@ return require('packer').startup(function(use)
 
     -- startup screen
     use { 'goolord/alpha-nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
+
+    -- solidity syntax highlighting
+    use 'tomlion/vim-solidity'
 end)

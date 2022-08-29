@@ -1,7 +1,37 @@
-local hop = require 'hop'
-require 'vider/map'
+return function(setup)
+    local hop = require 'hop'
+    local hd = require 'hop.hint'.HintDirection
+    require 'vider/map'
 
-hop.setup {}
+    hop.setup {}
 
-noremap{'s', '<cmd>lua require"hop".hint_char1{}<CR>'}
-noremap{'S', '<cmd>lua require"hop".hint_patterns{}<CR>'}
+    noremap {
+        setup.keybinds.hop.forward_1_sameline,
+        function()
+            hop.hint_char1 {
+                direction = hd.AFTER_CURSOR,
+                current_line_only = true
+            }
+        end
+    }
+
+    noremap {
+        setup.keybinds.hop.backward_1_sameline,
+        function()
+            hop.hint_char1 {
+                direction = hd.BEFORE_CURSOR,
+                current_line_only = true
+            }
+        end
+    }
+
+    noremap {
+        setup.keybinds.hop.bidirectional_1,
+        function() hop.hint_char1 {} end
+    }
+
+    noremap {
+        setup.keybinds.hop.hopanywhere,
+        function() hop.hint_anywhere {} end
+    }
+end

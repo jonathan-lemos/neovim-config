@@ -1,1 +1,1 @@
-require 'vider'
+(require 'vider'){setup}
