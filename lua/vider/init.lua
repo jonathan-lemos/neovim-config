@@ -70,7 +70,6 @@ local default_setup = {
         html = {},
         jedi_language_server = {},
         jsonls = {},
-        ltex = {},
         marksman = {},
         pyright = {},
         sumneko_lua = {
