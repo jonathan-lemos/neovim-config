@@ -1,15 +1,17 @@
--- this is for keybinds that are not part of any plugin. use the plugin's specific .lua to manage its keybinds
+return function(setup)
+    require 'vider/map'
 
-require 'vider/map'
+    if setup.word_wrap then
+        -- do not skip wrapped lines with the below commands
+        noremap { 'j', "gj" }
+        noremap { 'k', "gk" }
+        noremap { '^', 'g^' }
+        noremap { '$', 'g$' }
+    end
 
--- stop highlighting by pressing space
-noremap{'<Space>', '<cmd> nohl<CR>'}
--- do not skip wrapped lines with the below commands
-noremap{'j', "gj"}
-noremap{'k', "gk"}
-noremap{'^', 'g^'}
-noremap{'$', 'g$'}
--- escape from terminals with <Esc>
-tnoremap{'<Esc>', '<C-\\><C-n>'}
--- open terminal with \t
-noremap{'<Leader>t', '<cmd>split | startinsert | terminal<CR>'}
+    -- escape from terminals with <Esc>
+    tnoremap { '<Esc>', '<C-\\><C-n>' }
+
+    -- open terminal with \t
+    noremap { setup.keybinds.open_terminal, '<cmd>split | startinsert | terminal<CR>' }
+end

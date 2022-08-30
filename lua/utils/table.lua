@@ -49,6 +49,19 @@ merge = nilguard2(function(a, b)
     return a
 end)
 
+-- merges the second table with the first. also merges any subtables with the same key
+deepmerge = nilguard2(function(a, b)
+    for k, v in pairs(b) do
+        if type(a[k]) == "table" and type(b[k]) == "table" then
+            a[k] = deepmerge(a[k], b[k])
+        else
+            a[k] = v
+        end
+    end
+
+    return a
+end)
+
 -- concatenates the second array to the first
 concat = nilguard2(function(a, b)
     for i = 1, #b do
@@ -155,3 +168,57 @@ end
 function isarray(a)
     return type(a) == 'table' and all(function(k) k:match("%D") end)
 end
+
+function flatten(t)
+    if type(t) ~= 'table' then
+        error("flatten() called on " .. type(t) .. " (expected table)")
+    end
+
+    r = {}
+
+    i = 1
+    for _, v in pairs(t) do
+        if type(v) == 'table' then
+            for _, sv in ipairs(flatten(v)) do
+                r[i] = sv
+                i = i + 1
+            end
+        else
+            r[i] = v
+            i = i + 1
+        end
+    end
+
+    return r
+end
+
+function keys_tolist(t)
+    if type(t) ~= 'table' then
+        error("keys_tolist() called on " .. type(t) .. " (expected table)")
+    end
+
+    r = {}
+
+    i = 1
+    for k, _ in pairs(t) do
+        r[i] = k
+        i = i + 1
+    end
+
+    return r
+end
+
+function toset(t)
+    if type(t) ~= 'table' then
+        error("toset() called on " .. type(t) .. " (expected table)")
+    end
+
+    r = {}
+
+    for _, v in pairs(t) do
+        r[v] = true
+    end
+
+    return keys_tolist(r)
+end
+

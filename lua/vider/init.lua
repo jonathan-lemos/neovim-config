@@ -1,12 +1,13 @@
 require 'utils/table'
 
 local default_setup = {
+    -- add plugins using packer.nvim's use function
+    add_plugins = function(use) end,
     keybinds = {
         find_files = '<Leader>f',
         hop = {
             forward_1_sameline = 'f',
             backward_1_sameline = 'F',
-            bidirectional_1_sameline = nil,
             bidirectional_1 = 's',
             hopanywhere = 'S',
         },
@@ -14,7 +15,7 @@ local default_setup = {
             -- paste the current selection in the completion window
             completion_confirm = '<CR>',
             -- if the current function has documentation, scroll up
-            completion_docs_back = '<C-b>',
+            completion_docs_prev = '<C-b>',
             -- if the current function has documentation, scroll down
             completion_docs_next = '<C-w>',
             -- go to the next completion possibility
@@ -53,20 +54,63 @@ local default_setup = {
             vertical_split = 'v',
         },
         open_terminal = '<Leader>t',
-        stop_highlighting = '<Space>',
+        -- select a region of text in visual mode, press this combination and a character to surround with that type of character.
+        -- e.g. '<Leader>s(' will surround the current selection with parentheses
         surround = '<Leader>s',
-        word_wrap = true
-    }
+    },
+    -- which LSP's to enable
+    -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls for the full list
+    -- set an lsp to nil in init.lua to disable it
+    lsps = {
+        bashls = {},
+        cssls = {},
+        dockerls = {},
+        emmet_ls = {},
+        html = {},
+        jedi_language_server = {},
+        jsonls = {},
+        ltex = {},
+        marksman = {},
+        pyright = {},
+        sumneko_lua = {
+            settings = {
+                Lua = {
+                    runtime = {
+                        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                        version = 'LuaJIT',
+                    },
+                    diagnostics = {
+                        -- Get the language server to recognize the `vim` global
+                        globals = { 'vim' },
+                    },
+                    workspace = {
+                        -- Make the server aware of Neovim runtime files
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
+                    -- Do not send telemetry data containing a randomized but unique identifier
+                    telemetry = {
+                        enable = false,
+                    },
+                },
+            },
+        },
+        vimls = {},
+        yamlls = {}
+    },
+    -- source the vimscript at ~/.vimrc
+    use_vimrc = true,
+    -- enable word wrap
+    word_wrap = true
 }
 
 return function(setup)
-    setup = merge(default_setup, setup)
+    setup = deepmerge(default_setup, setup)
 
     require 'utils/require'
 
     require_dir('configs')(setup)
 
-    require 'plugins'
+    require('plugins')(setup)
 
     require 'vider/vim'
 
@@ -130,4 +174,8 @@ return function(setup)
 
     -- strip trailing whitespace on save
     vim.api.nvim_create_autocmd('BufWritePre', { command = ':%s/\\s\\+$//e' })
+
+    if setup.source_vimrc then
+        vim.cmd 'source ~/.vimrc'
+    end
 end
