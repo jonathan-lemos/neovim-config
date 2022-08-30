@@ -97,10 +97,16 @@ local default_setup = {
         vimls = {},
         yamlls = {}
     },
+    -- {keybind, button title, command}
+    menu_entries = function()
+        return {
+            { "e", "New file", "<cmd>ene <CR>" },
+            { "f", "Search by filename", "<cmd>Telescope find_files<CR>" },
+            { "i", "Search by file content", "<cmd>Telescope live_grep<CR>" }
+        }
+    end,
     -- source the vimscript at ~/.vimrc
     use_vimrc = true,
-    -- enable word wrap
-    word_wrap = true
 }
 
 return function(setup)
@@ -175,7 +181,7 @@ return function(setup)
     -- strip trailing whitespace on save
     vim.api.nvim_create_autocmd('BufWritePre', { command = ':%s/\\s\\+$//e' })
 
-    if setup.source_vimrc then
+    if setup.use_vimrc then
         vim.cmd 'source ~/.vimrc'
     end
 end

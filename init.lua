@@ -20,7 +20,8 @@
         terraformls = {},
         tsserver = {},
         solidity_ls = {}
-    }
+    },
+    use_vimrc = false
 }
 
 require 'vider/map'
