@@ -31,7 +31,7 @@ return function(setup)
     }
 
     noremap {
-        setup.keybinds.hop.hopanywhere,
-        function() hop.hint_anywhere {} end
+        setup.keybinds.hop.hop_pattern,
+        function() hop.hint_patterns {} end
     }
 end

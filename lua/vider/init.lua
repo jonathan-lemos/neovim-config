@@ -3,13 +3,14 @@ require 'utils/table'
 local default_setup = {
     -- add plugins using packer.nvim's use function
     add_plugins = function(use) end,
+    custom_lsps = {},
     keybinds = {
         find_files = '<Leader>f',
         hop = {
-            forward_1_sameline = 'f',
-            backward_1_sameline = 'F',
+            forward_1_sameline = nil,
+            backward_1_sameline = nil,
             bidirectional_1 = 's',
-            hopanywhere = 'S',
+            hop_pattern = 'S',
         },
         ide = {
             -- paste the current selection in the completion window

@@ -6,6 +6,7 @@ return function(setup)
     require 'utils/table'
     local tb = require 'telescope.builtin'
     local treesitter = require 'nvim-treesitter.configs'
+    local configs = require 'lspconfig.configs'
 
     -- mason installs LSP's for lspconfig, so i include its setup here
     mason.setup {}
@@ -14,6 +15,10 @@ return function(setup)
     mason_lspconfig.setup {
         ensure_installed = keys_tolist(setup.lsps)
     }
+
+    for k, v in pairs(setup.custom_lsps) do
+        configs[k] = v
+    end
 
     local lsp_defaults = {
         flags = {
@@ -56,6 +61,7 @@ return function(setup)
     end
 
     treesitter.setup {
+        ensure_installed = 'all',
         auto_install = true,
         highlight = {
             enable = true

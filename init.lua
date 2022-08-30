@@ -1,5 +1,8 @@
 (require 'vider') {
     add_plugins = function(use)
+        -- haskell syntax highlighting
+        use 'neovimhaskell/haskell-vim'
+
         -- solidity syntax highlighting
         use 'tomlion/vim-solidity'
     end,

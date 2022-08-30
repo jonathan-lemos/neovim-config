@@ -4,7 +4,7 @@ return function(setup)
     cmp.setup {
         snippet = {
             expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body)
+                vim.fn["UltiSnips#Anon"](args.body)
             end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -29,7 +29,7 @@ return function(setup)
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
             { name = 'nvim_lua' },
-            { name = 'vsnip' },
+            { name = 'ultisnips' },
             { name = 'buffer' },
         })
     }
