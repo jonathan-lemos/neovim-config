@@ -151,7 +151,7 @@ end
 -- returns true if p(x) returns true for all values (x) in t
 function all(t, p)
     t = nil_or(t)
-    for v in values(t) do
+    for _, v in pairs(t) do
         if not p(v) then
             return false
         end
@@ -166,7 +166,7 @@ end
 
 -- returns true if 'a' is an array
 function isarray(a)
-    return type(a) == 'table' and all(function(k) k:match("%D") end)
+    return type(a) == 'table' and all(a, function(k) return k:match("%D") end)
 end
 
 function flatten(t)

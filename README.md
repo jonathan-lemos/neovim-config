@@ -115,7 +115,25 @@ require('vider').setup {
 
 #### IDE controls
 
-You can format the current buffer with `<Leader>i` or the `keybinds.ide.format` option which you control as follows:
+The remaining IDE controls are as follows
+| Action | Option | Default |
+|--------|--------|---------|
+| Confirm completion | `keybinds.ide.completion_confirm` | `<CR>`
+| Scroll up in completion docs | `keybinds.ide.completion_docs_prev` | `<C-b>`
+| Scroll down in completion docs | `keybinds.ide.completion_docs_next` | `<C-w>`
+| Completion menu next item | `keybinds.ide.copmletion_menu_next` | `<Tab>`
+| Completion menu previous item | `keybinds.ide.copmletion_prev_next` | `<S-Tab>`
+| Goto definition | `keybinds.ide.goto_definition` | `gd`
+| Goto implementation | `keybinds.ide.goto_implementation` | `gi`
+| Goto references | `keybinds.ide.goto_references` | `gr`
+| Format | `keybinds.ide.format` | `<Leader>i`
+| Rename | `keybinds.ide.rename` | `<Leader>r`
+| Show errors on bottom | `keybinds.ide.show_errors` | `<Leader>e`
+| Fix error under cursor | `keybinds.ide.suggestion` | `<Leader>c`
+
+##### Changing the keybinds
+
+For example, to change the `keybinds.ide.format` bind to `<S-i>` (Shift-I), configure as follows:
 
 ```lua
 require('vider').setup {
@@ -173,57 +191,4 @@ You can also press `S` (or the configurable `keybinds.hop.hop_pattern` bind) to 
 
 ### Telescope
 
-You can find
-
-## New keybinds
-All keybinds below are configurable
-
-### Hop keybinds
-| Keybind | Description |
-|---------|-------------|
-|`s`|type a character, hop to a selected occurrence of it|
-|`S`|type a regex, hit enter, hop to a selected occurrence of it|
-
-## LSP keybinds
-| Keybind | Description |
-|---------|-------------|
-|`gd`|go to definition|
-|`gi`|go to implementation|
-|`gr`|go to references|
-|`<Leader>c`|apply code action (auto-fix)|
-|`<Leader>i`|format current buffer|
-|`<Leader>e`|open diagnostic window below|
-
-## NvimTree keybinds
-| Keybind | Description |
-|---------|-------------|
-|`<Leader>n`|Open/Close the tree|
-|`<CR>`/Double Click|Expand or collapse folder/open file in new buffer|
-|`d`|delete file|
-|`h`|open file in horizontal split|
-|`p`|paste file|
-|`r`|rename file|
-|`u`|set root to `..`|
-|`v`|open file in vertical split|
-|`x`|cut file|
-|`y`|copy file|
-|`z`|set root to cursor|
-|`-`|collapse all|
-
-## Misc keybinds
-| Keybind | Description |
-|---------|-------------|
-|`<Space>`|stop highlighting|
-|`<Leader>t`|open terminal in horizontal split|
-
-## Surround keybinds
-| Keybind | Description |
-|---------|-------------|
-|`<Leader>s`|Type character, surround selected (visual mode) text with that type of char|
-
-## Telescope keybinds
-| Keybind | Description |
-|---------|-------------|
-|`<Leader>ff`|Fuzzy find files in current directory|
-|`<Leader>fg`|Fuzzy grep file contents in current directory|
-|`<Leader>fb`|Fuzzy grep currently open buffers|
+You can find files in the current directory with `<Leader>`
