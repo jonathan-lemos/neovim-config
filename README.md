@@ -174,7 +174,7 @@ You can use any of the following controls within the file tree to perform the sp
 | Create | `keybinds.nvim_tree.create` | `c` | Leaving a trailing slash on the filename will create a directory instead of a file.
 | Cut | `keybinds.nvim_tree.cut` | `x` |
 | Delete | `keybinds.nvim_tree.delete` | `d` |
-| Expand folder/Open in new buffer | `keybinds.nvim_tree.expand` | `<CR>`/`<LeftMouse>` |
+| Expand folder/Open in new buffer | `keybinds.nvim_tree.expand` | `<CR>`/`<2-LeftMouse>` |
 | Open in horizontal split | `keybinds.nvim_tree.horizontal_split` | `h` |
 | Go to parent directory | `keybinds.nvim_tree.goto_parent` | `.` |
 | Paste | `keybinds.nvim_tree.paste` | `p` |
