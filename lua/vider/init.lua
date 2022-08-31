@@ -47,7 +47,7 @@ local default_setup = {
             delete = 'd',
             expand = { '<CR>', '<LeftMouse>' },
             horizontal_split = 'h',
-            goto_parent = 'u',
+            goto_parent = '.',
             paste = 'p',
             rename = 'r',
             set_root = 'z',
@@ -109,7 +109,7 @@ local default_setup = {
     use_vimrc = true,
 }
 
-return function(setup)
+local setup_fn = function(setup)
     setup = deepmerge(default_setup, setup)
 
     require 'utils/require'
@@ -185,3 +185,5 @@ return function(setup)
         vim.cmd 'source ~/.vimrc'
     end
 end
+
+return { setup = setup_fn }

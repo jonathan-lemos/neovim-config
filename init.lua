@@ -1,4 +1,4 @@
-(require 'vider') {
+require('vider').setup {
     add_plugins = function(use)
         -- haskell syntax highlighting
         use 'neovimhaskell/haskell-vim'
