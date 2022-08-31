@@ -189,7 +189,7 @@ After pressing the `s` key (or the configurable `keybinds.hop.bidirectional_1` b
 
 You can also press `S` (or the configurable `keybinds.hop.hop_pattern` bind) to type in a regex, and all matches will be highlighted similarly to above.
 
-### Miscelaneous
+### Miscellaneous
 
 You can find files in the current directory with `<Leader>f`/`keybinds.find_files`.
 
