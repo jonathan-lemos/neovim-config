@@ -189,6 +189,61 @@ After pressing the `s` key (or the configurable `keybinds.hop.bidirectional_1` b
 
 You can also press `S` (or the configurable `keybinds.hop.hop_pattern` bind) to type in a regex, and all matches will be highlighted similarly to above.
 
-### Telescope
+### Miscelaneous
 
-You can find files in the current directory with `<Leader>`
+You can find files in the current directory with `<Leader>f`/`keybinds.find_files`.
+
+You can ripgrep files in the current directory with `<Leader>g`/`keybinds.live_grep`.
+
+You can select a region of text and surround it with parentheses, angle brackets, etc. by using `<Leader>s`/`keybinds.surround` followed by the first character to surround with.
+
+You can open a terminal with `<Leader>t`/`keybinds.open_terminal`
+
+## Plugins
+
+The following plugins are already included with the config:
+
+* wbthomason/packer.nvim
+* neovim/nvim-lspconfig
+* williamboman/mason.nvim
+* williamboman/mason-lspconfig.nvim
+* nvim-telescope/telescope.nvim
+* nvim-lua/popup.nvim
+* nvim-lua/plenary.nvim
+* nvim-telescope/telescope-fzf-native.nvim
+* nvim-treesitter/nvim-treesitter
+* hoob3rt/lualine.nvim
+* SirVer/ultisnips
+* honza/vim-snippets
+* hrsh7th/nvim-cmp
+* hrsh7th/cmp-cmdline
+* hrsh7th/cmp-buffer
+* hrsh7th/cmp-nvim-lua
+* hrsh7th/cmp-nvim-lsp
+* hrsh7th/cmp-path
+* quangnguyen30192/cmp-nvim-ultisnips
+* kyazdani42/nvim-tree.lua
+* folke/trouble.nvim
+* phaazon/hop.nvim
+* itchyny/vim-cursorword
+* lukas-reineke/indent-blankline.nvim
+* kylechui/nvim-surround
+* windwp/nvim-autopairs
+* windwp/nvim-ts-autotag
+* tomasiser/vim-code-dark
+* akinsho/bufferline.nvim
+* goolord/alpha-nvim
+
+If you would like to include a plugin not on the list, you can do so as follows:
+
+```lua
+require('vider').setup {
+    add_plugins = function(use)
+        use 'neovimhaskell/haskell-vim'
+    end,
+    -- other options
+}
+```
+
+The `use` function passed in is the same one that Packer uses, so including a plugin for this config is the same process as including a plugin for Packer.
+
